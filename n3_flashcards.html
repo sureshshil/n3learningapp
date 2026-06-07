@@ -243,14 +243,14 @@ select#cat-filter:focus { border-color: var(--accent); }
 .vocab-inner { max-width: 680px; margin: 0 auto; }
 .vocab-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
 .vocab-title { font-size: 1.1rem; font-weight: 700; color: var(--text); }
-.vocab-counter { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text3); margin-left: auto; }
+.vocab-counter { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text2); margin-left: auto; }
 
 /* Vocab group filter */
 .vocab-groups { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
 .vg-btn {
   font-size: 12px; font-weight: 600; padding: 5px 14px;
   border-radius: 20px; border: 1.5px solid var(--border2);
-  background: var(--surface); color: var(--text2);
+  background: var(--surface); color: var(--text);
   cursor: pointer; transition: all 0.15s; font-family: 'Inter', sans-serif;
 }
 .vg-btn:hover { border-color: var(--accent); color: var(--accent-text); background: var(--accent-bg); }
@@ -279,8 +279,8 @@ select#cat-filter:focus { border-color: var(--accent); }
 }
 .vocab-word ruby { display: inline-flex; flex-direction: column-reverse; align-items: center; line-height: 1; }
 .vocab-word ruby rt { font-size: 0.85rem; color: var(--accent); font-weight: 400; line-height: 1.4; }
-.vocab-pos { font-size: 13px; color: var(--text3); margin-top: 0.5rem; font-style: italic; font-family: 'Inter', sans-serif; }
-.vocab-flip-hint { font-size: 12px; color: var(--text3); margin-top: 1.5rem; font-family: 'Inter', sans-serif; }
+.vocab-pos { font-size: 13px; color: var(--text2); margin-top: 0.5rem; font-style: italic; font-family: 'Inter', sans-serif; }
+.vocab-flip-hint { font-size: 12px; color: var(--text2); margin-top: 1.5rem; font-family: 'Inter', sans-serif; }
 
 /* Vocab card back */
 .vocab-card-back { display: none; padding: 1.75rem 2rem; }
@@ -290,21 +290,21 @@ select#cat-filter:focus { border-color: var(--accent); }
   font-family: 'Noto Serif JP', serif; font-size: 1.6rem; font-weight: 600; color: var(--text);
   margin-bottom: 0.3rem;
 }
-.vocab-meaning { font-size: 1rem; color: var(--text2); margin-bottom: 1.25rem; font-family: 'Inter', sans-serif; line-height: 1.6; }
+.vocab-meaning { font-size: 1rem; color: var(--text); margin-bottom: 1.25rem; font-family: 'Inter', sans-serif; line-height: 1.6; }
 .vocab-back-section { margin-bottom: 1rem; }
 .vocab-back-label {
   font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text3); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 8px;
+  color: var(--text2); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 8px;
 }
 .vocab-back-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .vocab-particle-row { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; padding: 6px 10px; background: var(--surface2); border-radius: 8px; }
 .vocab-particle-ruby { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--text); min-width: 150px; line-height: 2.2; }
 .vocab-particle-ruby ruby rt { font-size: 0.7em; color: var(--accent); }
-.vocab-particle-en { font-size: 13px; color: var(--text2); font-family: 'Inter', sans-serif; line-height: 1.5; }
+.vocab-particle-en { font-size: 13px; color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.5; }
 .vocab-example { border-radius: 10px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface2); margin-bottom: 8px; }
 .vocab-example-jp { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--text); margin-bottom: 5px; line-height: 2.2; }
 .vocab-example-jp ruby rt { font-size: 0.7em; color: var(--accent); }
-.vocab-example-en { font-size: 13px; color: var(--text3); font-style: italic; font-family: 'Inter', sans-serif; line-height: 1.5; }
+.vocab-example-en { font-size: 13px; color: var(--text2); font-style: italic; font-family: 'Inter', sans-serif; line-height: 1.5; }
 
 /* Vocab controls */
 .vocab-controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
