@@ -212,9 +212,127 @@ select#cat-filter:focus { border-color: var(--accent); }
 .ctrl-btn.mastered-btn.done { border-color: var(--green); color: var(--green); background: var(--green-bg); }
 
 .empty { text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 15px; }
+
+/* ── Tab bar ── */
+.tab-bar {
+  display: flex; gap: 4px; padding: 10px 12px 0;
+  background: var(--surface); border-bottom: 2px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.tab-btn {
+  padding: 8px 18px; font-size: 14px; font-weight: 600;
+  border: none; border-bottom: 3px solid transparent;
+  background: transparent; color: var(--text3);
+  cursor: pointer; font-family: 'Inter', sans-serif;
+  white-space: nowrap; transition: all 0.15s;
+  margin-bottom: -2px; border-radius: 6px 6px 0 0;
+}
+.tab-btn:hover { color: var(--accent); background: var(--accent-bg); }
+.tab-btn.active { color: var(--accent-text); border-bottom-color: var(--accent); background: var(--accent-bg); }
+
+/* ── Tab sections ── */
+.tab-section { display: none; }
+.tab-section.active { display: block; }
+
+/* ── Vocab section (dark purple theme) ── */
+.vocab-section {
+  background: #0a0a1a; min-height: 100vh; padding: 1.5rem 1rem 4rem;
+  font-family: 'Inter', sans-serif;
+}
+.vocab-inner { max-width: 680px; margin: 0 auto; }
+.vocab-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.vocab-title { font-size: 1.1rem; font-weight: 700; color: #e2d9f3; }
+.vocab-counter { font-family: 'DM Mono', monospace; font-size: 13px; color: #7c6fa0; margin-left: auto; }
+
+/* Vocab group filter */
+.vocab-groups {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.vg-btn {
+  font-size: 12px; font-weight: 600; padding: 5px 14px;
+  border-radius: 20px; border: 1.5px solid #2a1f4a;
+  background: #12102a; color: #7c6fa0;
+  cursor: pointer; transition: all 0.15s; font-family: 'Inter', sans-serif;
+}
+.vg-btn:hover { border-color: #a78bfa; color: #a78bfa; }
+.vg-btn.active { border-color: #a78bfa; color: #a78bfa; background: rgba(167,139,250,0.12); font-weight: 700; }
+
+/* Vocab progress bar */
+.vocab-prog { height: 4px; background: #1e1a3a; border-radius: 2px; margin-bottom: 1.25rem; overflow: hidden; }
+.vocab-prog-fill { height: 100%; background: #a78bfa; border-radius: 2px; transition: width 0.4s; }
+
+/* Vocab card */
+.vocab-card {
+  background: #12102a; border: 1.5px solid #2a1f4a;
+  border-radius: 18px; overflow: hidden; cursor: pointer;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.5); margin-bottom: 1.25rem;
+  transition: transform 0.1s;
+}
+.vocab-card:hover { transform: translateY(-2px); }
+.vocab-card-front { padding: 2.5rem 2rem 2rem; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.vocab-group-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #a78bfa; margin-bottom: 1rem; font-family: 'DM Mono', monospace;
+}
+.vocab-word {
+  font-family: 'Noto Serif JP', serif; font-size: 3rem; font-weight: 600;
+  color: #f0e6ff; line-height: 1.3; margin-bottom: 0.5rem;
+}
+.vocab-word ruby rt { font-size: 0.4em; color: #a78bfa; }
+.vocab-pos { font-size: 12px; color: #5a4f80; margin-top: 0.5rem; font-style: italic; }
+.vocab-flip-hint { font-size: 11px; color: #3d3060; margin-top: 1.5rem; }
+
+/* Vocab card back */
+.vocab-card-back { display: none; padding: 1.75rem 2rem; }
+.vocab-card.flipped .vocab-card-front { display: none; }
+.vocab-card.flipped .vocab-card-back { display: block; }
+.vocab-keyword {
+  font-size: 1.6rem; font-weight: 700; color: #a78bfa;
+  margin-bottom: 0.3rem;
+}
+.vocab-meaning { font-size: 1rem; color: #c4b5fd; margin-bottom: 1.25rem; }
+.vocab-back-section { margin-bottom: 1rem; }
+.vocab-back-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #5a4f80; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 8px;
+}
+.vocab-back-label::after { content: ''; flex: 1; height: 1px; background: #2a1f4a; }
+.vocab-particle-row { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; padding: 6px 10px; background: #1a1535; border-radius: 8px; }
+.vocab-particle-ruby { font-family: 'Noto Serif JP', serif; font-size: 14px; color: #e2d9f3; min-width: 150px; }
+.vocab-particle-ruby ruby rt { font-size: 0.6em; color: #7c6fa0; }
+.vocab-particle-en { font-size: 13px; color: #7c6fa0; }
+.vocab-example { border-radius: 10px; padding: 12px 14px; border-left: 3px solid #a78bfa; background: #1a1535; margin-bottom: 8px; }
+.vocab-example-jp { font-family: 'Noto Serif JP', serif; font-size: 15px; color: #e2d9f3; margin-bottom: 5px; line-height: 1.7; }
+.vocab-example-jp ruby rt { font-size: 0.55em; color: #7c6fa0; }
+.vocab-example-en { font-size: 13px; color: #5a4f80; font-style: italic; }
+
+/* Vocab controls */
+.vocab-controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.vc-btn {
+  padding: 9px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+  border: 1.5px solid #2a1f4a; background: #12102a; color: #e2d9f3;
+  cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s;
+}
+.vc-btn:hover { border-color: #a78bfa; color: #a78bfa; }
+.vc-btn.primary { background: #a78bfa; color: #0a0a1a; border-color: #a78bfa; }
+.vc-btn.primary:hover { background: #c4b5fd; }
+.vc-btn.known { border-color: #34d399; color: #34d399; }
+.vc-btn.known.active { background: rgba(52,211,153,0.12); }
+.vc-btn.hard { border-color: #f87171; color: #f87171; }
+.vc-btn.hard.active { background: rgba(248,113,113,0.12); }
 </style>
 </head>
 <body>
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('grammar',this)">Grammar</button>
+  <button class="tab-btn" onclick="switchTab('vocab1',this)">Vocab 1</button>
+  <button class="tab-btn" onclick="switchTab('vocab2',this)">Vocab 2</button>
+  <button class="tab-btn" onclick="switchTab('vocab3',this)">Vocab 3</button>
+  <button class="tab-btn" onclick="switchTab('vocab4',this)">Vocab 4</button>
+</nav>
+
+<div id="tab-grammar" class="tab-section active">
 <div class="app">
   <header>
     <div class="logo">N<em>3</em> Grammar Flashcards</div>
@@ -248,6 +366,100 @@ select#cat-filter:focus { border-color: var(--accent); }
       <button class="ctrl-btn primary" onclick="navCard(1)">next →</button>
       <button class="ctrl-btn mastered-btn" id="master-btn" onclick="toggleMastered()">○ mark mastered</button>
       <button class="ctrl-btn" onclick="showDeck()" style="margin-left:auto;">⊞ grid</button>
+    </div>
+  </div>
+</div>
+</div><!-- end tab-grammar -->
+
+<!-- Vocab Tab Sections -->
+<div id="tab-vocab1" class="tab-section">
+  <div class="vocab-section">
+    <div class="vocab-inner">
+      <div class="vocab-header">
+        <div class="vocab-title">N3 Vocab — Set 1</div>
+        <div class="vocab-counter" id="v1-counter">0 / 0</div>
+      </div>
+      <div class="vocab-groups" id="v1-groups"></div>
+      <div class="vocab-prog"><div class="vocab-prog-fill" id="v1-prog" style="width:0%"></div></div>
+      <div class="vocab-card" id="v1-card" onclick="vFlip(1)">
+        <div class="vocab-card-front" id="v1-front"></div>
+        <div class="vocab-card-back" id="v1-back"></div>
+      </div>
+      <div class="vocab-controls">
+        <button class="vc-btn" onclick="vNav(1,-1)">← prev</button>
+        <button class="vc-btn primary" onclick="vNav(1,1)">next →</button>
+        <button class="vc-btn known" id="v1-known" onclick="vMark(1,'known')">覚えた！⭐</button>
+        <button class="vc-btn hard" id="v1-hard" onclick="vMark(1,'hard')">難しい ✗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-vocab2" class="tab-section">
+  <div class="vocab-section">
+    <div class="vocab-inner">
+      <div class="vocab-header">
+        <div class="vocab-title">N3 Vocab — Set 2</div>
+        <div class="vocab-counter" id="v2-counter">0 / 0</div>
+      </div>
+      <div class="vocab-groups" id="v2-groups"></div>
+      <div class="vocab-prog"><div class="vocab-prog-fill" id="v2-prog" style="width:0%"></div></div>
+      <div class="vocab-card" id="v2-card" onclick="vFlip(2)">
+        <div class="vocab-card-front" id="v2-front"></div>
+        <div class="vocab-card-back" id="v2-back"></div>
+      </div>
+      <div class="vocab-controls">
+        <button class="vc-btn" onclick="vNav(2,-1)">← prev</button>
+        <button class="vc-btn primary" onclick="vNav(2,1)">next →</button>
+        <button class="vc-btn known" id="v2-known" onclick="vMark(2,'known')">覚えた！⭐</button>
+        <button class="vc-btn hard" id="v2-hard" onclick="vMark(2,'hard')">難しい ✗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-vocab3" class="tab-section">
+  <div class="vocab-section">
+    <div class="vocab-inner">
+      <div class="vocab-header">
+        <div class="vocab-title">N3 Vocab — Set 3</div>
+        <div class="vocab-counter" id="v3-counter">0 / 0</div>
+      </div>
+      <div class="vocab-groups" id="v3-groups"></div>
+      <div class="vocab-prog"><div class="vocab-prog-fill" id="v3-prog" style="width:0%"></div></div>
+      <div class="vocab-card" id="v3-card" onclick="vFlip(3)">
+        <div class="vocab-card-front" id="v3-front"></div>
+        <div class="vocab-card-back" id="v3-back"></div>
+      </div>
+      <div class="vocab-controls">
+        <button class="vc-btn" onclick="vNav(3,-1)">← prev</button>
+        <button class="vc-btn primary" onclick="vNav(3,1)">next →</button>
+        <button class="vc-btn known" id="v3-known" onclick="vMark(3,'known')">覚えた！⭐</button>
+        <button class="vc-btn hard" id="v3-hard" onclick="vMark(3,'hard')">難しい ✗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-vocab4" class="tab-section">
+  <div class="vocab-section">
+    <div class="vocab-inner">
+      <div class="vocab-header">
+        <div class="vocab-title">N3 Vocab — Set 4</div>
+        <div class="vocab-counter" id="v4-counter">0 / 0</div>
+      </div>
+      <div class="vocab-groups" id="v4-groups"></div>
+      <div class="vocab-prog"><div class="vocab-prog-fill" id="v4-prog" style="width:0%"></div></div>
+      <div class="vocab-card" id="v4-card" onclick="vFlip(4)">
+        <div class="vocab-card-front" id="v4-front"></div>
+        <div class="vocab-card-back" id="v4-back"></div>
+      </div>
+      <div class="vocab-controls">
+        <button class="vc-btn" onclick="vNav(4,-1)">← prev</button>
+        <button class="vc-btn primary" onclick="vNav(4,1)">next →</button>
+        <button class="vc-btn known" id="v4-known" onclick="vMark(4,'known')">覚えた！⭐</button>
+        <button class="vc-btn hard" id="v4-hard" onclick="vMark(4,'hard')">難しい ✗</button>
+      </div>
     </div>
   </div>
 </div>
@@ -5266,6 +5478,165 @@ document.addEventListener('keydown', e => {
 
 populateCatFilter();
 renderDeck();
+
+// ═══════════════════════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════════════════════
+// VOCAB DATA
+// ═══════════════════════════════════════════════
+const VOCAB_GROUPS = [
+  ["Time & Frequency","Emotion & State","Cause & Result","Social & Communication","Daily Actions","Quantity & Degree","Work & Study","Society & Abstract"],
+  ["Verbs of Change","Thinking & Judgment","Human Relations","Movement & Direction","State & Condition","Degree & Extent","Work & Society","Nature & Time"],
+  ["Key Nouns I","Key Nouns II","Essential Verbs","Adverbs & Connectors","Feelings & Character","Abstract & Social"],
+  ["Compound Verbs","Health & Body","Admin & Daily Life","Quantities & Standards","Key Adjectives","Discourse Connectors"]
+];
+
+const VOCAB_DATA = [null, null, null, null, null]; // index 1-4
+
+// ═══════════════════════════════════════════════
+// VOCAB ENGINE
+// ═══════════════════════════════════════════════
+const vState = {};
+for (let i = 1; i <= 4; i++) {
+  vState[i] = { idx: 0, group: -1, flipped: false, known: {}, hard: {} };
+}
+
+function vGetList(n) {
+  const s = vState[n];
+  const data = VOCAB_DATA[n];
+  if (s.group === -1) return data;
+  return data.filter(v => v.group === s.group);
+}
+
+function vRender(n) {
+  const s = vState[n];
+  const list = vGetList(n);
+  const card = document.getElementById('v'+n+'-card');
+  const front = document.getElementById('v'+n+'-front');
+  const back = document.getElementById('v'+n+'-back');
+  const counter = document.getElementById('v'+n+'-counter');
+  const prog = document.getElementById('v'+n+'-prog');
+  const knownBtn = document.getElementById('v'+n+'-known');
+  const hardBtn = document.getElementById('v'+n+'-hard');
+
+  if (!list || list.length === 0) {
+    front.innerHTML = '<p style="color:#5a4f80">No cards</p>';
+    counter.textContent = '0 / 0';
+    return;
+  }
+
+  s.flipped = false;
+  card.classList.remove('flipped');
+
+  const v = list[s.idx];
+  const groups = VOCAB_GROUPS[n-1];
+  counter.textContent = (s.idx + 1) + ' / ' + list.length;
+
+  // Progress based on known
+  const knownCount = list.filter(x => s.known[x.word]).length;
+  prog.style.width = Math.round(knownCount / list.length * 100) + '%';
+
+  // Front
+  front.innerHTML = `
+    <div class="vocab-group-label">${groups[v.group] || ''}</div>
+    <div class="vocab-word">${v.wordRuby}</div>
+    <div class="vocab-pos">${v.pos}</div>
+    <div class="vocab-flip-hint">tap to reveal</div>
+  `;
+
+  // Back
+  let particlesHtml = '';
+  if (v.particles && v.particles.length) {
+    particlesHtml = `<div class="vocab-back-section">
+      <div class="vocab-back-label">Key Patterns</div>
+      ${v.particles.map(p => `<div class="vocab-particle-row">
+        <div class="vocab-particle-ruby">${p.ruby}</div>
+        <div class="vocab-particle-en">${p.meaning || p.en || ''}</div>
+      </div>`).join('')}
+    </div>`;
+  }
+  let examplesHtml = '';
+  if (v.examples && v.examples.length) {
+    examplesHtml = `<div class="vocab-back-section">
+      <div class="vocab-back-label">Examples</div>
+      ${v.examples.map(e => `<div class="vocab-example">
+        <div class="vocab-example-jp">${e.ruby}</div>
+        <div class="vocab-example-en">${e.en}</div>
+      </div>`).join('')}
+    </div>`;
+  }
+  back.innerHTML = `
+    <div class="vocab-keyword">${v.keyword}</div>
+    <div class="vocab-meaning">${v.meaning}</div>
+    ${particlesHtml}
+    ${examplesHtml}
+  `;
+
+  // Mark buttons
+  knownBtn.classList.toggle('active', !!s.known[v.word]);
+  hardBtn.classList.toggle('active', !!s.hard[v.word]);
+}
+
+function vFlip(n) {
+  const s = vState[n];
+  s.flipped = !s.flipped;
+  document.getElementById('v'+n+'-card').classList.toggle('flipped', s.flipped);
+}
+
+function vNav(n, dir) {
+  const s = vState[n];
+  const list = vGetList(n);
+  if (!list || list.length === 0) return;
+  s.idx = (s.idx + dir + list.length) % list.length;
+  vRender(n);
+}
+
+function vMark(n, type) {
+  const s = vState[n];
+  const list = vGetList(n);
+  if (!list || list.length === 0) return;
+  const v = list[s.idx];
+  if (type === 'known') {
+    s.known[v.word] = !s.known[v.word];
+    if (s.known[v.word]) delete s.hard[v.word];
+  } else {
+    s.hard[v.word] = !s.hard[v.word];
+    if (s.hard[v.word]) delete s.known[v.word];
+  }
+  vRender(n);
+}
+
+function vSetGroup(n, g, btn) {
+  vState[n].group = g;
+  vState[n].idx = 0;
+  document.querySelectorAll('#v'+n+'-groups .vg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  vRender(n);
+}
+
+function vInitGroups(n) {
+  const groups = VOCAB_GROUPS[n-1];
+  const container = document.getElementById('v'+n+'-groups');
+  let html = `<button class="vg-btn active" onclick="vSetGroup(${n},-1,this)">All</button>`;
+  groups.forEach((g, i) => {
+    html += `<button class="vg-btn" onclick="vSetGroup(${n},${i},this)">${g}</button>`;
+  });
+  container.innerHTML = html;
+}
 </script>
+
+<script>
+// ═══════════════════════════════════════════════
+// VOCAB 1 DATA
+// ═══════════════════════════════════════════════
+
 </body>
 </html>
